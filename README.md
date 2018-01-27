@@ -55,5 +55,17 @@ Alternatively, without installation
 $ python ropa.py
 ```
 
+## Common installation issues
+### ImportError: ERROR: fail to load the dynamic library.
+This is due to a misplacement of the `libcapstone.so` file as described [here](https://github.com/aquynh/capstone/issues/413).
+
+To resolve this issue:
+```
+$ sudo mv\
+  /usr/local/lib/python2.7/dist-packages/usr/lib/python2.7/dist-packages/capstone/libcapstone.so\
+  /usr/local/lib/python2.7/dist-packages/capstone/libcapstone.so
+```
+
+
 ## Contribute
 This is still under development, so contributions are very much welcomed. Just fork this repo and pick one of the issues.
