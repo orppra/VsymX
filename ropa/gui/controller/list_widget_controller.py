@@ -13,19 +13,24 @@ class ListWidgetController:
 
     def show_in_gadgets_list(self, gadgets):
         self.widget.clear()
-        font = qg.QFont()
-        font.setFamily(_fromUtf8('Courier new'))
         # model = qg.QStandardItemModel(gadgets_list)
         for gadget in gadgets:
-            cell = gadget['address'] + '\n'
-            # cell += '-' * 2 * len(str(gadget['address'])) + '\n'
-            cell += '\n'.join(gadget['instructions']) + '\n'
-            # item = qg.QStandardItem(cell)
-            item = qg.QListWidgetItem(qc.QString(cell), self.widget)
-            item.setFont(font)
+
+            cell = '<pre>'
+            cell += '<b>%s</b>\n' % gadget['address']
+            for instruction in gadget['instructions']:
+                cell += '%s\n' % instruction
+            cell += '</pre>'
+            cell = qc.QString(cell)
+
+            item = qg.QListWidgetItem(cell, self.widget)
+            # label = qg.QLabel(self.widget)
+            # label.setText(cell)
+            # label.setContentsMargins(qc.QMargins(15, 15, 15, 15))
             # item.setStatusTip(qc.QString(gadget['info']))
             # item.setDragDropMode('InternalMove')
             # model.appendRow(item)
             self.widget.insertItem(self.widget.count(), item)
+            # self.widget.setItemWidget(item, label)
 
         # gadgets_list.setModel(model)
