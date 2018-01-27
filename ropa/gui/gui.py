@@ -109,6 +109,10 @@ class App(qg.QMainWindow, Ui_MainWindow):
         self.search_semantics_button.setToolTip(
             "Search for gadgets using Ropper's semantic searching function")
 
+        self.search_instructions_button.setEnabled(False)
+        self.search_poppopret_button.setEnabled(False)
+        self.search_semantics_button.setEnabled(False)
+
     def _load_textinputs(self):
         self.filter_input = self.findChild(qg.QLineEdit, 'searchBar')
 
@@ -165,3 +169,6 @@ class App(qg.QMainWindow, Ui_MainWindow):
         controller = FilterInputController(self.backend, self.filter_input,
                                            self.gadgets_list_widget)
         controller.filter_function()
+        self.search_instructions_button.setEnabled(True)
+        self.search_poppopret_button.setEnabled(True)
+        self.search_semantics_button.setEnabled(True)
