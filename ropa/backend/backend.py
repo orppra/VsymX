@@ -14,7 +14,7 @@ class Backend:
         self.app = app
         self.service = self.make_service_instance()
         self.chain = []
-        self.user_blocks = []
+        self.favorites = []
 
     def get_filename(self):
         return self.filename
@@ -233,13 +233,13 @@ class Backend:
         self.set_arch(save_data['arch'])
         self.activate()
         self.chain = save_data['chain']
-        self.user_blocks = save_data['user_blocks']
+        self.favorites = save_data['favorites']
 
     def save_project(self, file):
         with open(file, 'w') as outfile:
             save_data = {
                 'chain': self.chain,
-                'user_blocks': self.user_blocks,
+                'favorites': self.favorites,
                 'filename': self.filename,
                 'arch': self.arch
             }
