@@ -6,9 +6,9 @@ from ropa.gui.controller.file_dialog_controller import FileDialogController
 
 
 class ExportService:
-    def __init__(self, backend, widget):
+    def __init__(self, backend, lwc):
         self.backend = backend
-        self.widget = widget
+        self.lwc = lwc
         self.file_dialog_controller = FileDialogController()
 
     def num_bits(self, arch):
@@ -32,8 +32,8 @@ class ExportService:
     def export_binary(self):
         filepath = self.file_dialog_controller.open_file_dialog()
         chain = []
-        for index in range(self.widget.count()):
-            block = str(self.widget.item(index).text())
+        for index in range(self.lwc.count()):
+            block = str(self.lwc.get_item(index).text())
             print(str(block))
             block = block.strip().split('\n')
             address = block[0]
@@ -59,8 +59,8 @@ class ExportService:
     def export_python_struct(self):
         filepath = self.file_dialog_controller.open_file_dialog()
         chain = []
-        for index in range(self.widget.count()):
-            block = str(self.widget.item(index).text())
+        for index in range(self.lwc.count()):
+            block = str(self.lwc.get_item(index).text())
             print(str(block))
             block = block.strip().split('\n')
             address = block[0]
@@ -93,8 +93,8 @@ class ExportService:
     def export_python_pwntools(self):
         filepath = self.file_dialog_controller.open_file_dialog()
         chain = []
-        for index in range(self.widget.count()):
-            block = str(self.widget.item(index).text())
+        for index in range(self.lwc.count()):
+            block = str(self.lwc.get_item(index).text())
             block = block.strip().split('\n')
             address = block[0]
             block = block[2:]
