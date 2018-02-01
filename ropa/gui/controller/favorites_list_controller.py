@@ -10,5 +10,3 @@ class FavoritesListController(ListWidgetController):
         self.widget.setDropIndicatorShown(True)
         self.widget.setItemDelegate(
             HTMLDelegate(self.widget))
-        self.widget.keyPressEvent = self.key_press_event
-        self.widget.keyReleaseEvent = self.key_release_event
