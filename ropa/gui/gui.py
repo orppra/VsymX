@@ -58,7 +58,7 @@ class App(qg.QMainWindow, Ui_MainWindow):
 
     def _init_list_widgets(self):
         search_list_widget = self.findChild(qg.QListWidget,
-                                            'gadgetsList')
+                                            'searchList')
         self.search_list = SearchListController(search_list_widget)
 
         chain_list_widget = self.findChild(qg.QListWidget, 'chainList')
