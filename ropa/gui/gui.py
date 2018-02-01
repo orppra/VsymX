@@ -73,6 +73,7 @@ class App(qg.QMainWindow, Ui_MainWindow):
                                                     'searchInstructions')
         self.instructions_button = IBController(instructions_button_widget,
                                                 self.backend,
+                                                self.filter_input,
                                                 self.search_list)
         poppopret_button_widget = self.findChild(qg.QPushButton,
                                                  'searchPopPopRet')
@@ -83,6 +84,7 @@ class App(qg.QMainWindow, Ui_MainWindow):
                                                  'searchSemantics')
         self.semantics_button = SBController(semantics_button_widget,
                                              self.backend,
+                                             self.filter_input,
                                              self.search_list)
 
     def _init_text_inputs(self):
