@@ -33,6 +33,7 @@ class DialogController:
             arch_table.setItem(row, 1, item)
             row += 1
         dialog.show()
+        arch_table.itemDoubleClicked.connect(lambda: dialog.accept())
         if dialog.exec_():
             if arch_table.selectedItems() is not None:
                 arch = str(arch_table.selectedItems()[0].text())
