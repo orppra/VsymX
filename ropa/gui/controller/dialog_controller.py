@@ -39,4 +39,4 @@ class DialogController:
             else:
                 arch = 'x86'
             return arch
-        return Exception('Failed to open dialog')
+        raise Exception('Failed to open dialog')
