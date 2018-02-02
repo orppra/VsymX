@@ -30,7 +30,7 @@ class ExportService:
             subprocess.call(["open", filepath])
 
     def export_binary(self):
-        filepath = self.file_dialog_controller.open_file_dialog()
+        filepath = self.file_dialog_controller.open_file_dialog('Export')
         chain = []
         for index in range(self.lwc.count()):
             block = str(self.lwc.get_item(index).text())
@@ -57,7 +57,7 @@ class ExportService:
         self.open_exported(filepath)
 
     def export_python_struct(self):
-        filepath = self.file_dialog_controller.open_file_dialog()
+        filepath = self.file_dialog_controller.open_file_dialog('Export')
         chain = []
         for index in range(self.lwc.count()):
             block = str(self.lwc.get_item(index).text())
@@ -91,7 +91,7 @@ class ExportService:
         self.open_exported(filepath)
 
     def export_python_pwntools(self):
-        filepath = self.file_dialog_controller.open_file_dialog()
+        filepath = self.file_dialog_controller.open_file_dialog('Export')
         chain = []
         for index in range(self.lwc.count()):
             block = str(self.lwc.get_item(index).text())
