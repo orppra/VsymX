@@ -38,8 +38,7 @@ class ChainListController(ListWidgetController):
             self.widget.setCurrentRow(index + 1)
         if e.key() == qc.Qt.Key_Delete:
             # delete
-            if self.count() > 0:
-                self.widget.takeItem(self.widget.selectedIndexes()[0].row())
+            self.widget.takeItem(self.widget.selectedIndexes()[0].row())
 
     def key_release_event(self, e):
         if e.key() == qc.Qt.Key_Control:
