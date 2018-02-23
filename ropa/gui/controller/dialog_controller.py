@@ -5,9 +5,9 @@ from ropa.gui import UI_PATH
 
 
 class DialogController:
-    def file_dialog(self):
+    def file_dialog(self, title):
         dialog = qg.QFileDialog()
-        dialog.setWindowTitle('Open File')
+        dialog.setWindowTitle(title)
         dialog.setFileMode(qg.QFileDialog.AnyFile)
         filenames = qc.QStringList()
         if dialog.exec_():
@@ -33,6 +33,7 @@ class DialogController:
             arch_table.setItem(row, 1, item)
             row += 1
         dialog.show()
+        arch_table.itemDoubleClicked.connect(lambda: dialog.accept())
         if dialog.exec_():
             if arch_table.selectedItems() is not None:
                 arch = str(arch_table.selectedItems()[0].text())
