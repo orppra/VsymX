@@ -18,8 +18,8 @@ from button_controller import ButtonController
 
 
 class PoppopretButtonController(ButtonController):
-    def __init__(self, widget, backend, lwc):
-        super(PoppopretButtonController, self).__init__(widget, backend)
+    def __init__(self, app, widget, lwc):
+        super(PoppopretButtonController, self).__init__(app, widget)
         self.lwc = lwc
 
         self._bind_clicked(self.filter)
@@ -27,5 +27,5 @@ class PoppopretButtonController(ButtonController):
             "Search for gadgets containing <i>POP POP RET</i> sequences")
 
     def filter(self):
-        gadgets = self.backend.process_query('pop-pop-ret', '')
+        gadgets = self.search_service.process_query('pop-pop-ret', '')
         self.lwc.set_gadgets(gadgets)

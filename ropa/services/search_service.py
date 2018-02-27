@@ -17,7 +17,7 @@
 from ropper import RopperService
 
 
-class Backend:
+class SearchService:
 
     def __init__(self, app):
         self.app = app
